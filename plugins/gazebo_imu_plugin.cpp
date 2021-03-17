@@ -340,9 +340,14 @@ void GazeboImuPlugin::OnUpdate(const common::UpdateInfo& _info) {
   // imu_message_.orientation.z = 0;
 
   if(imuattack) {
+    // This attack will kill the imu sensor
+    // The drone will free fall if it is on the air
+
+    // Set the acceleration vector to (0,0,0)
     linear_acceleration->set_x(0);
     linear_acceleration->set_y(0);
     linear_acceleration->set_z(0);
+    // Set the velocity vector to (0,0,0)
     angular_velocity->set_x(0);
     angular_velocity->set_y(0);
     angular_velocity->set_z(0);
