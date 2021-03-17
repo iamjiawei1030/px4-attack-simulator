@@ -347,6 +347,8 @@ void GpsPlugin::OnWorldUpdate(const common::UpdateInfo& /*_info*/)
 
     // TODO
     if(!jamming) {
+      // While we are not jamming the gps signal,
+      //    update the gps signal
       gps_delay_buffer_.push(gps_msg);
       current_time_ = current_time;
     }
